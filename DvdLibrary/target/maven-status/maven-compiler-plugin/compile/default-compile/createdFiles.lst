@@ -1,0 +1,8 @@
+com/bobazimov/dvdlibrary/controller/DvdLibraryController.class
+com/bobazimov/dvdlibrary/view/DvdLibraryView.class
+com/bobazimov/dvdlibrary/dao/DvdLibraryDaoFileImpl.class
+com/bobazimov/dvdlibrary/App.class
+com/bobazimov/dvdlibrary/dto/DvdLibrary.class
+com/bobazimov/dvdlibrary/dao/DvdLibraryDao.class
+com/bobazimov/dvdlibrary/view/UserIO.class
+com/bobazimov/dvdlibrary/view/UserIOImpl.class
