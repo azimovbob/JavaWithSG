@@ -145,4 +145,9 @@ public class DvdLibraryView {
     public void displayRemoveDvdMsg(){
         io.print("=== Remove dvd ====\n");
     }
+    
+    public void displayErrorMessage(String errorMsg) {
+        io.print("=== ERROR ===");
+        io.print(errorMsg);
+    }
 }

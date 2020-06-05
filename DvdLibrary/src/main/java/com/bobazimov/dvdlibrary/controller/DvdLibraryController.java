@@ -5,8 +5,11 @@
  */
 package com.bobazimov.dvdlibrary.controller;
 
-import com.bobazimov.dvdlibrary.dao.DvdLibraryDao;
+import com.bobazimov.dvdlibrary.dao.DvdLibraryPersistenceException;
 import com.bobazimov.dvdlibrary.dto.DvdLibrary;
+import com.bobazimov.dvdlibrary.service.DvdLibraryDataValidationException;
+import com.bobazimov.dvdlibrary.service.DvdLibraryDublicateException;
+import com.bobazimov.dvdlibrary.service.DvdLibraryServiceLayer;
 import com.bobazimov.dvdlibrary.view.DvdLibraryView;
 import com.bobazimov.dvdlibrary.view.UserIO;
 import com.bobazimov.dvdlibrary.view.UserIOImpl;
@@ -19,13 +22,13 @@ import java.util.List;
 public class DvdLibraryController {
     
     private DvdLibraryView view;
-    private  DvdLibraryDao dao;
+    private DvdLibraryServiceLayer service;
     private UserIO io = new UserIOImpl();
     
     
-    public DvdLibraryController(DvdLibraryView view, DvdLibraryDao dao) {
+    public DvdLibraryController(DvdLibraryView view, DvdLibraryServiceLayer service) {
         this.view = view;
-        this.dao = dao;
+        this.service = service;
         
     }
     
@@ -34,77 +37,91 @@ public class DvdLibraryController {
     public void run() throws Exception{
         int menuOption = 0;
         boolean keepGoing = true;
-        
-        while(keepGoing){
-        menuOption = getMenuOption();
-        switch(menuOption){
-            case 1: 
-                view.displayDvdCollectionMsg();
-                listCollections();
-                displayEndofAcitivty();
-                break;
-            case 2: 
-                view.displayDvdCreateMsg();
-                addDvd();
-                displayEndofAcitivty();
-                break;
-            case 3:
-                view.displaySingleDvdMsg();
-                displayDvd();
-                displayEndofAcitivty();
-                break;
-            case 4: 
-                view.displayRemoveDvdMsg();
-                removeDvd();
-                displayEndofAcitivty();
-                break;
-            case 5:
-                view.displayRemoveDvdMsg();
-                updateDvd();
-                displayEndofAcitivty();
-                break;
-            case 6:
-                io.print("Bye Bye");
-                keepGoing = false;
-                break;
-            default: 
-                io.print("Unkown command");
-                break;
-        }
+        try{
+            while(keepGoing){
+                menuOption = getMenuOption();
+                switch(menuOption){
+                    case 1: 
+                        view.displayDvdCollectionMsg();
+                        listCollections();
+                        displayEndofAcitivty();
+                        break;
+                    case 2: 
+                        view.displayDvdCreateMsg();
+                        createDvd();
+                        displayEndofAcitivty();
+                        break;
+                    case 3:
+                        view.displaySingleDvdMsg();
+                        displayDvd();
+                        displayEndofAcitivty();
+                        break;
+                    case 4: 
+                        view.displayRemoveDvdMsg();
+                        removeDvd();
+                        displayEndofAcitivty();
+                        break;
+                    case 5:
+                        view.displayRemoveDvdMsg();
+                        updateDvd();
+                        displayEndofAcitivty();
+                        break;
+                    case 6:
+                        io.print("Bye Bye");
+                        keepGoing = false;
+                        break;
+                    default: 
+                        io.print("Unkown command");
+                        break;
+                }
+            }
+        }catch(DvdLibraryPersistenceException e){
+            view.displayErrorMessage(e.toString());
         }
     }
     
     private int getMenuOption(){
         return view.printMenuAndGetSelection();
     }
-    
-    private void addDvd() throws Exception{
-        DvdLibrary dvd = view.getDvdInfo();
-        dao.addDvd(dvd.getTitle(), dvd);
+
+    private void createDvd() throws DvdLibraryPersistenceException{
+        boolean hasError = false;
+        do{
+            DvdLibrary dvd = view.getDvdInfo();
+            try{
+                service.createDvd(dvd);
+                view.displayDvdCreateMsg();
+                hasError = false;
+            }catch(DvdLibraryDublicateException | DvdLibraryDataValidationException e ){
+                hasError = true;
+                view.displayErrorMessage(e.toString());
+            }
+        }while(hasError);
+        
     }
     
     private void listCollections() throws Exception{
-        List<DvdLibrary> dvdList = dao.getCollections();
+        List<DvdLibrary> dvdList = service.getAllDvd();
         view.getList(dvdList);
     }
     
     private void displayDvd() throws Exception{
         String dvd = view.getChosenDvd();
-        DvdLibrary currentDvd = dao.getChosenDvd(dvd);
+        DvdLibrary currentDvd = service.getDvd(dvd);
         view.displayChosenDvd(currentDvd);
     }
     
     private void removeDvd() throws Exception{
         String removedDvd = view.getChosenDvd();
-        DvdLibrary dvdRecord = dao.removeDvd(removedDvd);
+        DvdLibrary dvdRecord = service.removeDvd(removedDvd);
         view.displayRemovedDvd(dvdRecord);
     }
     
     public void updateDvd() throws Exception{
         String dvdTitle = view.getChosenDvd();
-        DvdLibrary dvdRecord = dao.getChosenDvd(dvdTitle);
+        DvdLibrary dvdRecord = service.getDvd(dvdTitle);
         dvdRecord = view.updateDvd(dvdRecord);
-        dao.updateDvd(dvdTitle, dvdRecord);
+        service.updateDvd(dvdTitle, dvdRecord);
          
     }
     

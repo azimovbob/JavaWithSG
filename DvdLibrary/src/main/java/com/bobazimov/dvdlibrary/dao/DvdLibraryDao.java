@@ -18,37 +18,37 @@ public interface DvdLibraryDao {
      * @param title
      * @param dvd
      * @return 
-     * @throws com.bobazimov.dvdlibrary.dao.DvdLibraryDaoException 
+     * @throws com.bobazimov.dvdlibrary.dao.DvdLibraryPersistenceException 
      */
-    DvdLibrary addDvd(String title, DvdLibrary dvd) throws DvdLibraryDaoException;
+    DvdLibrary addDvd(String title, DvdLibrary dvd) throws DvdLibraryPersistenceException;
     /**
      * 
      * @return 
-     * @throws com.bobazimov.dvdlibrary.dao.DvdLibraryDaoException 
+     * @throws com.bobazimov.dvdlibrary.dao.DvdLibraryPersistenceException 
      */
-    List<DvdLibrary> getCollections() throws DvdLibraryDaoException;
-    /**
-     * 
-     * @param title
-     * @return 
-     * @throws com.bobazimov.dvdlibrary.dao.DvdLibraryDaoException 
-     */
-    DvdLibrary getChosenDvd(String title) throws DvdLibraryDaoException;
+    List<DvdLibrary> getCollections() throws DvdLibraryPersistenceException;
     /**
      * 
      * @param title
      * @return 
-     * @throws com.bobazimov.dvdlibrary.dao.DvdLibraryDaoException 
+     * @throws com.bobazimov.dvdlibrary.dao.DvdLibraryPersistenceException 
      */
-    DvdLibrary removeDvd(String title) throws DvdLibraryDaoException;
+    DvdLibrary getChosenDvd(String title) throws DvdLibraryPersistenceException;
+    /**
+     * 
+     * @param title
+     * @return 
+     * @throws com.bobazimov.dvdlibrary.dao.DvdLibraryPersistenceException 
+     */
+    DvdLibrary removeDvd(String title) throws DvdLibraryPersistenceException;
     /**
      * 
      * @param title
      * @param dvdRecord
      * @return 
-     * @throws com.bobazimov.dvdlibrary.dao.DvdLibraryDaoException 
+     * @throws com.bobazimov.dvdlibrary.dao.DvdLibraryPersistenceException 
      */
-    DvdLibrary updateDvd(String title, DvdLibrary dvdRecord) throws DvdLibraryDaoException;
+    DvdLibrary updateDvd(String title, DvdLibrary dvdRecord) throws DvdLibraryPersistenceException;
     
     
 }

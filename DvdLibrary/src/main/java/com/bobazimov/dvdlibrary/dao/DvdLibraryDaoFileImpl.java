@@ -23,11 +23,19 @@ public class DvdLibraryDaoFileImpl implements DvdLibraryDao {
     
     private Map<String, DvdLibrary> dvds = new HashMap();
     
-    public static final String DVD_FILE = "dvdlibrary.txt";
+    public final String DVD_FILE ;
     public static final String DELIMITER = "::";
 
+    public DvdLibraryDaoFileImpl() {
+      DVD_FILE  = "dvdlibrary.txt";
+    }
+    
+    public DvdLibraryDaoFileImpl(String dvdfile) {
+        this.DVD_FILE = dvdfile;
+    }
+
     @Override
-    public DvdLibrary addDvd(String title, DvdLibrary dvd) throws DvdLibraryDaoException{
+    public DvdLibrary addDvd(String title, DvdLibrary dvd) throws DvdLibraryPersistenceException{
         read();
         DvdLibrary newDvd = dvds.put(title, dvd);
         write();
@@ -35,19 +43,19 @@ public class DvdLibraryDaoFileImpl implements DvdLibraryDao {
     }
 
     @Override
-    public List<DvdLibrary> getCollections() throws DvdLibraryDaoException{
+    public List<DvdLibrary> getCollections() throws DvdLibraryPersistenceException{
         read();
         return new ArrayList<DvdLibrary>(dvds.values());
     }
 
     @Override
-    public DvdLibrary getChosenDvd(String title) throws DvdLibraryDaoException{
+    public DvdLibrary getChosenDvd(String title) throws DvdLibraryPersistenceException{
         read();
         return dvds.get(title);
     }
 
     @Override
-    public DvdLibrary removeDvd(String title) throws DvdLibraryDaoException{
+    public DvdLibrary removeDvd(String title) throws DvdLibraryPersistenceException{
         read();
         DvdLibrary dvdRecord = dvds.remove(title);
         write();
@@ -55,7 +63,7 @@ public class DvdLibraryDaoFileImpl implements DvdLibraryDao {
     }
 
     @Override
-    public DvdLibrary updateDvd(String title, DvdLibrary dvdRecord) throws DvdLibraryDaoException{
+    public DvdLibrary updateDvd(String title, DvdLibrary dvdRecord) throws DvdLibraryPersistenceException{
         read();
         DvdLibrary currentDvd = dvds.put(title, dvdRecord);
         write();
@@ -83,12 +91,12 @@ public class DvdLibraryDaoFileImpl implements DvdLibraryDao {
         return dvdText;
     }
     
-    private void write() throws DvdLibraryDaoException{
+    private void write() throws DvdLibraryPersistenceException{
         PrintWriter out;
         try{
         out = new PrintWriter(new FileWriter(DVD_FILE));
         }catch(IOException e){
-            throw new DvdLibraryDaoException("Cannot save the data", e);
+            throw new DvdLibraryPersistenceException("Cannot save the data", e);
         }
         String dvdAsText;
         
@@ -103,12 +111,12 @@ public class DvdLibraryDaoFileImpl implements DvdLibraryDao {
         out.close();
     }
     
-    private void read() throws DvdLibraryDaoException{
+    private void read() throws DvdLibraryPersistenceException{
         Scanner scanner;
         try{
         scanner = new Scanner(new BufferedReader(new FileReader(DVD_FILE)));
         }catch(FileNotFoundException e){
-            throw new DvdLibraryDaoException("File not found ", e);
+            throw new DvdLibraryPersistenceException("File not found ", e);
         }
         String currentLine;
         

@@ -5,6 +5,8 @@
  */
 package com.bobazimov.dvdlibrary.dto;
 
+import java.util.Objects;
+
 /**
  *
  * @author irabob
@@ -27,6 +29,51 @@ public class DvdLibrary {
 
     public String getReleaseDate() {
         return releaseDate;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 79 * hash + Objects.hashCode(this.title);
+        hash = 79 * hash + Objects.hashCode(this.releaseDate);
+        hash = 79 * hash + Objects.hashCode(this.mpaaRating);
+        hash = 79 * hash + Objects.hashCode(this.directorName);
+        hash = 79 * hash + Objects.hashCode(this.studio);
+        hash = 79 * hash + Objects.hashCode(this.userNote);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final DvdLibrary other = (DvdLibrary) obj;
+        if (!Objects.equals(this.title, other.title)) {
+            return false;
+        }
+        if (!Objects.equals(this.releaseDate, other.releaseDate)) {
+            return false;
+        }
+        if (!Objects.equals(this.mpaaRating, other.mpaaRating)) {
+            return false;
+        }
+        if (!Objects.equals(this.directorName, other.directorName)) {
+            return false;
+        }
+        if (!Objects.equals(this.studio, other.studio)) {
+            return false;
+        }
+        if (!Objects.equals(this.userNote, other.userNote)) {
+            return false;
+        }
+        return true;
     }
 
     public void setReleaseDate(String releaseDate) {
@@ -63,6 +110,11 @@ public class DvdLibrary {
 
     public void setUserNote(String userNote) {
         this.userNote = userNote;
+    }
+
+    @Override
+    public String toString() {
+        return "DvdLibrary{" + "title=" + title + ", releaseDate=" + releaseDate + ", mpaaRating=" + mpaaRating + ", directorName=" + directorName + ", studio=" + studio + ", userNote=" + userNote + '}';
     }
     
     

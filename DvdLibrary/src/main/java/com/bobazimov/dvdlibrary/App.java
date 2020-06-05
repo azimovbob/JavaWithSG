@@ -6,8 +6,12 @@
 package com.bobazimov.dvdlibrary;
 
 import com.bobazimov.dvdlibrary.controller.DvdLibraryController;
+import com.bobazimov.dvdlibrary.dao.DvdAuditDao;
+import com.bobazimov.dvdlibrary.dao.DvdAuditDaoImpl;
 import com.bobazimov.dvdlibrary.dao.DvdLibraryDao;
 import com.bobazimov.dvdlibrary.dao.DvdLibraryDaoFileImpl;
+import com.bobazimov.dvdlibrary.service.DvdLibraryServiceLayer;
+import com.bobazimov.dvdlibrary.service.DvdLibraryServiceLayerImpl;
 import com.bobazimov.dvdlibrary.view.DvdLibraryView;
 import com.bobazimov.dvdlibrary.view.UserIO;
 import com.bobazimov.dvdlibrary.view.UserIOImpl;
@@ -22,7 +26,9 @@ public class App {
         UserIO myIo = new UserIOImpl();
         DvdLibraryView myView = new DvdLibraryView(myIo);
         DvdLibraryDao myDao = new DvdLibraryDaoFileImpl();
-        DvdLibraryController controller = new DvdLibraryController(myView, myDao);
+        DvdAuditDao myAudit = new DvdAuditDaoImpl();
+        DvdLibraryServiceLayer myService = new DvdLibraryServiceLayerImpl(myDao, myAudit);
+        DvdLibraryController controller = new DvdLibraryController(myView, myService);
 
         controller.run();
     
