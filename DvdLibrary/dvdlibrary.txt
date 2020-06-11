@@ -1,6 +1,8 @@
-the matrix::0202200::::afds::2::adf
-Ocean's Eleven::Dec 7, 2001::Steven Soderbergh::Warner Bros::4.8::Great movie!!!
-sad::adf::adf::adf::adf::fd
-The Showman::2009::Iryja::Tarakan::5.0::Unkown review
-Terminator::1985::Arnold::Warner Bro's::5::nice movie
-American pie::2009::Paramaount::Paramaount::5::comedian 
+the matrix::03/31/1999::The Wachowskis::Silver Pictures::8.4::science fiction
+Ocean's Eleven::12/07/2001::Steven Soderbergh::Warner Bros::9.2::Great movie
+Django::12/06/1991::James Wan::Paramount::9::Great movie
+Iron man 2::06/07/2020::James Wan::Paramount::8.5::Super hero 
+Tenzin::06/07/2020::Tenzin::Tenzin::9::Tenzin
+The Showman::12/27/2017::Michael Gracey::Chernin Entertainment::8.9::musical drama
+Terminator::10/26/1984::James Cameron::Pacific Western ::9.1::science fiction
+American pie::07/09/1999::Paul Weitz::Universal Pictures::8.1::comedian 

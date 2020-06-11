@@ -14,6 +14,7 @@ import com.bobazimov.dvdlibrary.view.DvdLibraryView;
 import com.bobazimov.dvdlibrary.view.UserIO;
 import com.bobazimov.dvdlibrary.view.UserIOImpl;
 import java.util.List;
+import java.util.OptionalDouble;
 
 /**
  *
@@ -69,6 +70,18 @@ public class DvdLibraryController {
                     case 6:
                         io.print("Bye Bye");
                         keepGoing = false;
+                        break;
+                    case 7:
+                        displayDvdWithNYears();
+                        break;
+                    case 8:
+                        displayDvdWithNRaing();
+                        break;
+                    case 9:
+                        displayDvdWithGivenDirector();
+                        break;
+                    case 10:
+                        showAvg();
                         break;
                     default: 
                         io.print("Unkown command");
@@ -130,4 +143,28 @@ public class DvdLibraryController {
     }
     
     
+    public void displayDvdWithNYears() throws Exception{
+        int year = io.readInt("Enter year of movies");
+        List<DvdLibrary> dvdList = service.getDvdNYear(year);
+        view.getDvdNYear(dvdList);
+    }
+    
+    public void displayDvdWithNRaing() throws Exception{
+        float rating = io.readFloat("Enter rating of movies");
+        List<DvdLibrary> dvdList = service.getDvdRating(rating);
+        view.getDvdNRating(dvdList);
+        
+    }
+    
+    public void displayDvdWithGivenDirector() throws Exception{
+        String directorName = io.readString("Enter director name");
+        List<DvdLibrary> dvdList = service.getDvdDirector(directorName);
+        view.getDvdNDirector(dvdList);
+    }
+    
+    public void showAvg() throws Exception{
+        List<DvdLibrary> dvdList = service.getAllDvd();
+        OptionalDouble avg = service.getAverage(dvdList);
+        view.showAverageRating(avg);
+    }
 }

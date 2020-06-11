@@ -6,7 +6,10 @@
 package com.bobazimov.dvdlibrary.view;
 
 import com.bobazimov.dvdlibrary.dto.DvdLibrary;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.OptionalDouble;
 
 /**
  *
@@ -31,14 +34,18 @@ public class DvdLibraryView {
         io.print("4. Remove a Dvd record");
         io.print("5. Update a Dvd record");
         io.print("6. Exit");
+        io.print("7. Display dvds for given year");
+        io.print("8. Display dvds for given rating");
+        io.print("9. Display dvds for given director name");
+        io.print("10. Display average rating");
         
-        return io.readInt("Please select from above choice: ", 1, 6);
+        return io.readInt("Please select from above choice: ", 1, 10);
     }
     
     
     public DvdLibrary getDvdInfo(){
         String title = io.readString("Enter name");
-        String releaseDate = io.readString("Enter releaseDate");
+        String releaseDate = getReleaseDate();
         String mpaaRating = io.readString("Enter rating");
         String directorName = io.readString("Enter director's name");
         String studio = io.readString("Enter studio");
@@ -99,7 +106,7 @@ public class DvdLibraryView {
     
     public DvdLibrary updateDvd(DvdLibrary dvdRecord){
         if(dvdRecord!=null){
-            String newReleaseDate = io.readString("Enter release date");
+            String newReleaseDate = getReleaseDate();
             String newDirectorName = io.readString("Enter director name");
             String newStudio = io.readString("Enter studio");
             String newMpaaRating = io.readString("Enter mpaa rating");
@@ -149,5 +156,70 @@ public class DvdLibraryView {
     public void displayErrorMessage(String errorMsg) {
         io.print("=== ERROR ===");
         io.print(errorMsg);
+    }
+    
+    public String getReleaseDate(){
+        
+        LocalDate ld;
+        String isoDate;
+        isoDate = io.readString("Enter relaese date MM/dd/yyyy");
+        ld = LocalDate.parse(isoDate, DateTimeFormatter.ofPattern("MM/dd/yyyy"));
+        String iso = ld.format(DateTimeFormatter.ofPattern("MM/dd/yyyy"));
+        return iso;
+                
+    }
+    
+    public void getDvdNYear(List<DvdLibrary> dvdList){
+        
+        for(DvdLibrary currentDvd: dvdList){
+            String dvdInfo = String.format("#%s: %s %s %s %s %s", 
+                    
+                    currentDvd.getTitle(),
+                    currentDvd.getReleaseDate(),
+                    currentDvd.getDirectorName(),
+                    currentDvd.getStudio(),
+                    currentDvd.getMpaaRating(),
+                    currentDvd.getUserNote());
+            
+            io.print(dvdInfo);
+            
+        }
+    }
+    
+    public void getDvdNRating(List<DvdLibrary> dvdList){
+    
+        for(DvdLibrary currentDvd: dvdList){
+            String dvdInfo = String.format("#%s: %s %s %s %s %s", 
+                    
+                    currentDvd.getTitle(),
+                    currentDvd.getReleaseDate(),
+                    currentDvd.getDirectorName(),
+                    currentDvd.getStudio(),
+                    currentDvd.getMpaaRating(),
+                    currentDvd.getUserNote());
+            
+            io.print(dvdInfo);
+        }
+    }
+    
+    public void getDvdNDirector(List<DvdLibrary> dvdList){
+        
+        for(DvdLibrary currentDvd: dvdList){
+            String dvdInfo = String.format("#%s: %s %s %s %s %s", 
+                    
+                    currentDvd.getTitle(),
+                    currentDvd.getReleaseDate(),
+                    currentDvd.getDirectorName(),
+                    currentDvd.getStudio(),
+                    currentDvd.getMpaaRating(),
+                    currentDvd.getUserNote());
+            
+            io.print(dvdInfo);
+        }
+    }
+    
+    public void showAverageRating(OptionalDouble average){
+        
+        io.print(average.toString());
     }
 }

@@ -10,6 +10,7 @@ import com.bobazimov.dvdlibrary.dao.DvdLibraryDao;
 import com.bobazimov.dvdlibrary.dao.DvdLibraryPersistenceException;
 import com.bobazimov.dvdlibrary.dto.DvdLibrary;
 import java.util.List;
+import java.util.OptionalDouble;
 
 
 public class DvdLibraryServiceLayerImpl implements DvdLibraryServiceLayer {
@@ -101,5 +102,29 @@ public class DvdLibraryServiceLayerImpl implements DvdLibraryServiceLayer {
         return dvdDao.updateDvd(dvdTitle, dvd);
 
     }
+
+    @Override
+    public List<DvdLibrary> getDvdNYear(int year) throws DvdLibraryPersistenceException {
+        return dvdDao.getDvdNYears(year);
+    }
+
+    @Override
+    public List<DvdLibrary> getDvdRating(float rating) throws DvdLibraryPersistenceException {
+        return dvdDao.getDvdInGivenRating(rating);
+    }
+
+    @Override
+    public List<DvdLibrary> getDvdDirector(String director) throws DvdLibraryPersistenceException {
+        return dvdDao.getDvdWithGivenDirector(director);
+    }
+
+    @Override
+    public OptionalDouble getAverage(List<DvdLibrary> dvdList) throws DvdLibraryPersistenceException {
+        return dvdDao.getAverageRating(dvdList);
+    }
+    
+    
+    
+    
     
 }

@@ -8,6 +8,7 @@ package com.bobazimov.dvdlibrary.service;
 import com.bobazimov.dvdlibrary.dao.DvdLibraryPersistenceException;
 import com.bobazimov.dvdlibrary.dto.DvdLibrary;
 import java.util.List;
+import java.util.OptionalDouble;
 
 /**
  *
@@ -30,4 +31,12 @@ public interface DvdLibraryServiceLayer {
             DvdLibraryPersistenceException,
             DvdLibraryDataValidationException,
             DvdLibraryDublicateException;
+    
+    List<DvdLibrary> getDvdNYear(int year) throws DvdLibraryPersistenceException;
+    
+    List<DvdLibrary> getDvdRating(float rating) throws DvdLibraryPersistenceException;
+    
+    List<DvdLibrary> getDvdDirector(String director) throws DvdLibraryPersistenceException;
+    
+    OptionalDouble getAverage(List<DvdLibrary> dvdList) throws DvdLibraryPersistenceException;
 }

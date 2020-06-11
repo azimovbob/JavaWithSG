@@ -76,5 +76,15 @@ public class DvdLibraryDaoStubImpl implements DvdLibraryDao{
             return null;
         }
     }
+
+    @Override
+    public List<DvdLibrary> getDvdNYears(int years) throws DvdLibraryPersistenceException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+  @Override
+    public List<DvdLibrary> getDvdInGivenRating(float rating) throws DvdLibraryPersistenceException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

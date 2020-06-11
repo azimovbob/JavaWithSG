@@ -16,7 +16,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.OptionalDouble;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 
 public class DvdLibraryDaoFileImpl implements DvdLibraryDao {
@@ -45,7 +47,7 @@ public class DvdLibraryDaoFileImpl implements DvdLibraryDao {
     @Override
     public List<DvdLibrary> getCollections() throws DvdLibraryPersistenceException{
         read();
-        return new ArrayList<DvdLibrary>(dvds.values());
+        return new ArrayList<>(dvds.values());
     }
 
     @Override
@@ -130,4 +132,50 @@ public class DvdLibraryDaoFileImpl implements DvdLibraryDao {
         }
         scanner.close();
     }
+
+    @Override
+    public List<DvdLibrary> getDvdNYears(int years) throws DvdLibraryPersistenceException {
+  
+        List<DvdLibrary> dvdList = (List<DvdLibrary>) getCollections().stream()
+                .filter(x->Integer.parseInt(x.getReleaseDate().substring(x.getReleaseDate().length()-4)) >= years)
+                .collect(Collectors.toList());
+        
+        return dvdList;
+    }
+
+    @Override
+    public List<DvdLibrary> getDvdInGivenRating(float rating) throws DvdLibraryPersistenceException {
+        
+        return getCollections().stream()
+                .filter(x->Float.parseFloat(x.getMpaaRating()) >= rating)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<DvdLibrary> getDvdWithGivenDirector(String director) throws DvdLibraryPersistenceException {
+        
+        return getCollections().stream()
+                .filter((x)->x.getDirectorName().equals(director))
+                .collect(Collectors.toList());
+        
+    }
+
+    @Override
+    public OptionalDouble getAverageRating(List<DvdLibrary> dvdList) throws DvdLibraryPersistenceException {
+        
+//        List<Integer> dvdRating = new ArrayList<>();
+//        
+//        dvdList.forEach((dvd)->{
+//            dvdRating.add(Integer.parseInt(dvd.getMpaaRating()));
+//        });
+        
+        OptionalDouble average = dvdList.stream()
+                .mapToDouble((x)->Double.parseDouble(x.getMpaaRating()))
+                .average();
+        
+        return average;
+                
+    }
+
+    
 }
