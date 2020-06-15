@@ -61,7 +61,6 @@ public class ItemController {
         double cash = view.getPayment();
         String itemSelected = view.getItem();
         String change = service.buyItem(itemSelected, cash);
-        service.
         view.displayChange(change);
     }
     

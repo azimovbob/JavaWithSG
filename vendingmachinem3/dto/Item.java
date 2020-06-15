@@ -5,6 +5,8 @@
  */
 package com.bobazimov.vendingmachinem3.dto;
 
+import java.util.Objects;
+
 /**
  *
  * @author irabob
@@ -23,6 +25,44 @@ public class Item {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 41 * hash + Objects.hashCode(this.name);
+        hash = 41 * hash + Objects.hashCode(this.price);
+        hash = 41 * hash + this.quantity;
+        return hash;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" + "name=" + name + ", price=" + price + ", quantity=" + quantity + '}';
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Item other = (Item) obj;
+        if (this.quantity != other.quantity) {
+            return false;
+        }
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        if (!Objects.equals(this.price, other.price)) {
+            return false;
+        }
+        return true;
     }
     
     public String getName() {

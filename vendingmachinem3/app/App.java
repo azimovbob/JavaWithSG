@@ -6,6 +6,8 @@
 package com.bobazimov.vendingmachinem3.app;
 
 import com.bobazimov.vendingmachinem3.controller.ItemController;
+import com.bobazimov.vendingmachinem3.dao.ItemAudit;
+import com.bobazimov.vendingmachinem3.dao.ItemAuditImpl;
 import com.bobazimov.vendingmachinem3.dao.ItemDao;
 import com.bobazimov.vendingmachinem3.dao.ItemDaoImpl;
 import com.bobazimov.vendingmachinem3.service.ItemService;
@@ -26,7 +28,8 @@ public class App {
         ItemView myView = new ItemView(myIo);
         
         ItemDao myDao = new ItemDaoImpl();
-        ItemService myService = new ItemServiceImpl(myDao);
+        ItemAudit myAudit = new ItemAuditImpl();
+        ItemService myService = new ItemServiceImpl(myDao, myAudit);
         
         ItemController myController = new ItemController(myView, myService);
         

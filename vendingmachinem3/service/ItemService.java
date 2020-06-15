@@ -28,7 +28,7 @@ public interface ItemService {
      * @param name itemName
      * @param price itemPrice
      * @return double
-     * @throws java.lang.Exception
+     * @throws com.bobazimov.vendingmachinem3.service.NoEnoughMoneyException
      */
     String buyItem(String name, double price) throws Exception;
     

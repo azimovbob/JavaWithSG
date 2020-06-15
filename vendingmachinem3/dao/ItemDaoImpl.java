@@ -21,17 +21,19 @@ import java.util.Scanner;
 
 public class ItemDaoImpl implements ItemDao {
 
-    private Map<String, Item> items = new HashMap<>();
-    public final String ITEM_FILE = "itemsfile.txt";
+    private Map<String, Item> items;
+    public final String ITEM_FILE;
     public static final String DELIMITER = "::";
     
     public ItemDaoImpl(){
-        //ITEM_FILE = "itemsfile.txt";
+        ITEM_FILE = "itemsfile.txt";
+        this.items = new HashMap<>();
     }
     
-//    public ItemDaoImpl(String file){
-//        this.ITEM_FILE = file;
-//    }
+    public ItemDaoImpl(String file, Map<String, Item> items){
+        this.ITEM_FILE = file;
+        this.items = items;
+    }
  
     @Override
     public List<Item> getItems() throws Exception{
