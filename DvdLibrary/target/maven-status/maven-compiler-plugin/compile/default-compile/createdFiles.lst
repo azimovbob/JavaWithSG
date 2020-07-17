@@ -4,6 +4,7 @@ com/bobazimov/dvdlibrary/App.class
 com/bobazimov/dvdlibrary/service/DvdLibraryDublicateException.class
 com/bobazimov/dvdlibrary/service/DvdLibraryDataValidationException.class
 com/bobazimov/dvdlibrary/view/UserIO.class
+com/bobazimov/dvdlibrary/dao/DvdLibraryDaoException.class
 com/bobazimov/dvdlibrary/controller/DvdLibraryController.class
 com/bobazimov/dvdlibrary/view/DvdLibraryView.class
 com/bobazimov/dvdlibrary/dao/DvdLibraryDaoFileImpl.class

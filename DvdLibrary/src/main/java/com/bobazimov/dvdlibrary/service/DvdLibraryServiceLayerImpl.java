@@ -11,13 +11,15 @@ import com.bobazimov.dvdlibrary.dao.DvdLibraryPersistenceException;
 import com.bobazimov.dvdlibrary.dto.DvdLibrary;
 import java.util.List;
 import java.util.OptionalDouble;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-
+@Component
 public class DvdLibraryServiceLayerImpl implements DvdLibraryServiceLayer {
 
     DvdLibraryDao dvdDao;
     DvdAuditDao audit;
-
+    @Autowired
     public DvdLibraryServiceLayerImpl(DvdLibraryDao dvdDao, DvdAuditDao audit) {
         this.dvdDao = dvdDao;
         this.audit = audit;

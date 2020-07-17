@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.bobazimov.dvdlibrary.dao.DvdLibraryTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.156 sec <<< FAILURE! - in com.bobazimov.dvdlibrary.dao.DvdLibraryTest
+testSomeMethod  Time elapsed: 0.013 sec  <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at com.bobazimov.dvdlibrary.dao.DvdLibraryTest.testSomeMethod(DvdLibraryTest.java:41)
+

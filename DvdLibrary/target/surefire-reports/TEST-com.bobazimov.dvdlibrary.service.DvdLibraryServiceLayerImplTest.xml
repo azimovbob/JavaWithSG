@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.bobazimov.dvdlibrary.service.DvdLibraryServiceLayerImplTest" time="0.061" tests="4" errors="0" skipped="0" failures="1">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.bobazimov.dvdlibrary.service.DvdLibraryServiceLayerImplTest" time="0.714" tests="4" errors="0" skipped="0" failures="1">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.6+10"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home/lib"/>
     <property name="gopherProxySet" value="false"/>
-    <property name="maven.multiModuleProjectDirectory" value="/Users/irabob/NetBeansProjects/DvdLibrary"/>
+    <property name="maven.multiModuleProjectDirectory" value="/Users/irabob/Desktop/classwork/repos/javaClasswork/JavaWithSG/DvdLibrary"/>
     <property name="java.vm.vendor" value="AdoptOpenJDK"/>
     <property name="java.vendor.url" value="https://adoptopenjdk.net/"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="test" value="com.bobazimov.dvdlibrary.service.DvdLibraryServiceLayerImplTest"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/Users/irabob/NetBeansProjects/DvdLibrary"/>
+    <property name="user.dir" value="/Users/irabob/Desktop/classwork/repos/javaClasswork/JavaWithSG/DvdLibrary"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="java.runtime.version" value="11.0.6+10"/>
     <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
@@ -68,7 +68,12 @@
   <testcase name="testCreatValidDvd" classname="com.bobazimov.dvdlibrary.service.DvdLibraryServiceLayerImplTest" time="0.001"/>
   <testcase name="testSomeMethod" classname="com.bobazimov.dvdlibrary.service.DvdLibraryServiceLayerImplTest" time="0.021">
     <failure message="The test case is a prototype." type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: The test case is a prototype.
-	at com.bobazimov.dvdlibrary.service.DvdLibraryServiceLayerImplTest.testSomeMethod(DvdLibraryServiceLayerImplTest.java:33)
+	at com.bobazimov.dvdlibrary.service.DvdLibraryServiceLayerImplTest.testSomeMethod(DvdLibraryServiceLayerImplTest.java:36)
 </failure>
+    <system-err><![CDATA[Jun 17, 2020 12:04:11 PM org.springframework.context.support.ClassPathXmlApplicationContext prepareRefresh
+INFO: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@479460a6: startup date [Wed Jun 17 12:04:11 EDT 2020]; root of context hierarchy
+Jun 17, 2020 12:04:11 PM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFO: Loading XML bean definitions from class path resource [applicationContext.xml]
+]]></system-err>
   </testcase>
 </testsuite>

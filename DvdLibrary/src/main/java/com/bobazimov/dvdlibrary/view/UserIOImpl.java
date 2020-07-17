@@ -6,8 +6,9 @@
 package com.bobazimov.dvdlibrary.view;
 
 import java.util.Scanner;
+import org.springframework.stereotype.Component;
 
-
+@Component
 public class UserIOImpl implements UserIO {
 
    

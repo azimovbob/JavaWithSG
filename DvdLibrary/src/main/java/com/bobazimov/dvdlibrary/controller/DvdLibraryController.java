@@ -15,18 +15,23 @@ import com.bobazimov.dvdlibrary.view.UserIO;
 import com.bobazimov.dvdlibrary.view.UserIOImpl;
 import java.util.List;
 import java.util.OptionalDouble;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author irabob
  */
+@Component
 public class DvdLibraryController {
     
     private DvdLibraryView view;
+    
+    
     private DvdLibraryServiceLayer service;
     private UserIO io = new UserIOImpl();
     
-    
+    @Autowired
     public DvdLibraryController(DvdLibraryView view, DvdLibraryServiceLayer service) {
         this.view = view;
         this.service = service;

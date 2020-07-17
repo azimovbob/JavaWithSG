@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.bobazimov.dvdlibrary.dto.DvdLibraryTest" time="0.132" tests="5" errors="0" skipped="0" failures="1">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.bobazimov.dvdlibrary.dao.DvdLibraryTest" time="0.156" tests="5" errors="0" skipped="0" failures="1">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.6+10"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home/lib"/>
     <property name="gopherProxySet" value="false"/>
-    <property name="maven.multiModuleProjectDirectory" value="/Users/irabob/NetBeansProjects/DvdLibrary"/>
+    <property name="maven.multiModuleProjectDirectory" value="/Users/irabob/Desktop/classwork/repos/javaClasswork/JavaWithSG/DvdLibrary"/>
     <property name="java.vm.vendor" value="AdoptOpenJDK"/>
     <property name="java.vendor.url" value="https://adoptopenjdk.net/"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -14,9 +14,8 @@
     <property name="sun.os.patch.level" value="unknown"/>
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
-    <property name="test" value="com.bobazimov.dvdlibrary.dto.DvdLibraryTest"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/Users/irabob/NetBeansProjects/DvdLibrary"/>
+    <property name="user.dir" value="/Users/irabob/Desktop/classwork/repos/javaClasswork/JavaWithSG/DvdLibrary"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="java.runtime.version" value="11.0.6+10"/>
     <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
@@ -44,7 +43,7 @@
     <property name="java.class.path" value="/Users/irabob/Downloads/netbeans/java/maven/boot/plexus-classworlds-2.5.2.jar"/>
     <property name="java.vm.specification.version" value="11"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dtest=com.bobazimov.dvdlibrary.dto.DvdLibraryTest -Dmaven.ext.class.path=/Users/irabob/Downloads/netbeans/java/maven-nblib/netbeans-eventspy.jar surefire:test"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dmaven.ext.class.path=/Users/irabob/Downloads/netbeans/java/maven-nblib/netbeans-eventspy.jar clean install"/>
     <property name="java.home" value="/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home"/>
     <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
@@ -63,13 +62,13 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="testAddGetAll" classname="com.bobazimov.dvdlibrary.dto.DvdLibraryTest" time="0.078"/>
-  <testcase name="testAddDvd" classname="com.bobazimov.dvdlibrary.dto.DvdLibraryTest" time="0.003"/>
-  <testcase name="testGetRemove" classname="com.bobazimov.dvdlibrary.dto.DvdLibraryTest" time="0.005"/>
-  <testcase name="testGetUpdate" classname="com.bobazimov.dvdlibrary.dto.DvdLibraryTest" time="0.009"/>
-  <testcase name="testSomeMethod" classname="com.bobazimov.dvdlibrary.dto.DvdLibraryTest" time="0.017">
+  <testcase name="testAddGetAll" classname="com.bobazimov.dvdlibrary.dao.DvdLibraryTest" time="0.116"/>
+  <testcase name="testAddDvd" classname="com.bobazimov.dvdlibrary.dao.DvdLibraryTest" time="0.004"/>
+  <testcase name="testGetRemove" classname="com.bobazimov.dvdlibrary.dao.DvdLibraryTest" time="0.003"/>
+  <testcase name="testGetUpdate" classname="com.bobazimov.dvdlibrary.dao.DvdLibraryTest" time="0.004"/>
+  <testcase name="testSomeMethod" classname="com.bobazimov.dvdlibrary.dao.DvdLibraryTest" time="0.013">
     <failure message="The test case is a prototype." type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: The test case is a prototype.
-	at com.bobazimov.dvdlibrary.dto.DvdLibraryTest.testSomeMethod(DvdLibraryTest.java:40)
+	at com.bobazimov.dvdlibrary.dao.DvdLibraryTest.testSomeMethod(DvdLibraryTest.java:41)
 </failure>
   </testcase>
 </testsuite>

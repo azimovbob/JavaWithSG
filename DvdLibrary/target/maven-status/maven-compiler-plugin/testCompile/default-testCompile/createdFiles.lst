@@ -1,1 +1,4 @@
-com/bobazimov/dvdlibrary/dto/DvdLibraryTest.class
+com/bobazimov/dvdlibrary/service/DvdLibraryAuditStub.class
+com/bobazimov/dvdlibrary/service/DvdLibraryDaoStubImpl.class
+com/bobazimov/dvdlibrary/service/DvdLibraryServiceLayerImplTest.class
+com/bobazimov/dvdlibrary/dao/DvdLibraryTest.class

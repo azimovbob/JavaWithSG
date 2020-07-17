@@ -10,6 +10,7 @@ import com.bobazimov.dvdlibrary.dao.DvdLibraryPersistenceException;
 import com.bobazimov.dvdlibrary.dto.DvdLibrary;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.OptionalDouble;
 
 /**
  *
@@ -84,6 +85,16 @@ public class DvdLibraryDaoStubImpl implements DvdLibraryDao{
 
   @Override
     public List<DvdLibrary> getDvdInGivenRating(float rating) throws DvdLibraryPersistenceException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<DvdLibrary> getDvdWithGivenDirector(String director) throws DvdLibraryPersistenceException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public OptionalDouble getAverageRating(List<DvdLibrary> dvdList) throws DvdLibraryPersistenceException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

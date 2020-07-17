@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.bobazimov.dvdlibrary.dto;
+package com.bobazimov.dvdlibrary.dao;
 
 import com.bobazimov.dvdlibrary.dao.DvdLibraryDao;
 import com.bobazimov.dvdlibrary.dao.DvdLibraryDaoFileImpl;
 import com.bobazimov.dvdlibrary.dao.DvdLibraryPersistenceException;
+import com.bobazimov.dvdlibrary.dto.DvdLibrary;
 import java.io.FileWriter;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;

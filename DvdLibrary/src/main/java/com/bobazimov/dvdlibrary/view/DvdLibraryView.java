@@ -10,15 +10,19 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.OptionalDouble;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author irabob
  */
+@Component
 public class DvdLibraryView {
     
     private UserIO io;
-
+    
+    @Autowired
     public DvdLibraryView(UserIO io) {
         this.io = io;
     }

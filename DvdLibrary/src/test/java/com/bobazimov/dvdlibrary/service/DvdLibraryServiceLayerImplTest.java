@@ -5,12 +5,12 @@
  */
 package com.bobazimov.dvdlibrary.service;
 
-import com.bobazimov.dvdlibrary.dao.DvdAuditDao;
-import com.bobazimov.dvdlibrary.dao.DvdLibraryDao;
 import com.bobazimov.dvdlibrary.dao.DvdLibraryPersistenceException;
 import com.bobazimov.dvdlibrary.dto.DvdLibrary;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  *
@@ -22,10 +22,13 @@ public class DvdLibraryServiceLayerImplTest {
     
     public DvdLibraryServiceLayerImplTest() {
         
-        DvdLibraryDao dao = new DvdLibraryDaoStubImpl();
-        DvdAuditDao audit = new DvdLibraryAuditStub();
-        
-        service = new DvdLibraryServiceLayerImpl(dao, audit);
+//        DvdLibraryDao dao = new DvdLibraryDaoStubImpl();
+//        DvdAuditDao audit = new DvdLibraryAuditStub();
+//        
+//        service = new DvdLibraryServiceLayerImpl(dao, audit);
+
+          ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+          service = ctx.getBean("service", DvdLibraryServiceLayer.class);
     }
     
     @Test

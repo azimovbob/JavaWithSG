@@ -19,8 +19,9 @@ import java.util.Map;
 import java.util.OptionalDouble;
 import java.util.Scanner;
 import java.util.stream.Collectors;
+import org.springframework.stereotype.Component;
 
-
+@Component
 public class DvdLibraryDaoFileImpl implements DvdLibraryDao {
     
     private Map<String, DvdLibrary> dvds = new HashMap();
